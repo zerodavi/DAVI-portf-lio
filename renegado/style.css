@@ -1,0 +1,244 @@
+/* Container principal para centralizar o conteúdo */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  /* Container da barra de pesquisa */
+  .search-container {
+    display: flex;
+    max-width: 400px;
+    margin: 50px auto;
+  }
+  
+  /* Campo de entrada */
+  .search-container input[type="text"] {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #cccccc;
+    border-right: none;
+    border-radius: 5px 0 0 5px;
+    font-size: 16px;
+   
+  }
+  
+  /* Botão de pesquisa */
+  .search-container button {
+    padding: 10px 20px;
+    border: 1px solid #ccc;
+    border-left: none;
+    border-radius: 0 5px 5px 0;
+    background-color: #007BFF;
+    color: #fff;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  /* Efeito hover no botão */
+  .search-container button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Estilos Gerais */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #da0808de; /* Fundo da página */
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  
+  /* Banner Rotativo */
+  .banner-container {
+    position: relative;
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+  }
+  
+  .banner-slide {
+    display: none;
+    width: 100%;
+  }
+  
+  .banner-slide img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .fade {
+    animation: fadeEffect 1.5s;
+  }
+  
+  @keyframes fadeEffect {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+  }
+  
+  /* Menu Lateral */
+  .side-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100vh;
+    background-color: #1e1e1e;
+    color: #ffffff;
+    padding-top: 50px;
+    transition: transform 0.3s ease;
+    box-shadow: 2px 0 10px rgba(255, 69, 0, 0.5);
+    text-align: center;
+  }
+  
+  .side-menu a {
+    display: block;
+    padding: 15px;
+    color: #ffffff;
+    text-decoration: none;
+    border-bottom: 1px solid #ff4500;
+    transition: background-color 0.3s;
+  }
+  
+  .side-menu a:hover {
+    background-color: #ff4500;
+  }
+  
+  .side-menu.closed {
+    transform: translateX(-100%);
+  }
+  
+  .menu-toggle {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    font-size: 24px;
+    background-color: #ff4500;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 100;
+    transition: background-color 0.3s ease;
+  }
+  
+  .menu-toggle:hover {
+    background-color: #e03e00;
+  }
+  
+  /* Galeria de Imagens */
+  .image-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin: auto;
+  }
+  
+  /* Estilos para os elementos <figure> */
+  figure {
+    background: linear-gradient(to bottom, #4d06be, #e71313);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 8px;
+    text-align: center;
+    transition: transform 0.3s ease;
+  }
+  
+  /* Efeito de hover nas imagens */
+  figure img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+  
+  figure:hover img {
+    transform: scale(1.1);
+  }
+  
+  /* Personaliza a legenda abaixo da imagem */
+  figcaption {
+    font-size: 16px;
+    color: #f2f4f5;
+    margin-top: 8px;
+    font-weight: bold;
+  }
+  
+  /* Rodapé */
+  footer {
+    background-color: #ff4500;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  /* Galeria de Vídeos */
+  .video-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin: auto;
+  }
+  
+  .video-item {
+    background: #1e1e1e;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(255, 69, 0, 0.5);
+    transition: transform 0.3s;
+  }
+  
+  .video-item:hover {
+    transform: scale(1.05);
+  }
+  
+  .video-item img {
+    width: 100%;
+    height: auto;
+    border-bottom: 2px solid #ff4500;
+  }
+  
+  .video-item video {
+    width: 100%;
+    display: block;
+  }
+  
+  /* --------------------------- */
+  /* Media Queries para Responsividade */
+  /* --------------------------- */
+  @media (max-width: 768px) {
+    /* Ajusta a barra de pesquisa */
+    .search-container {
+      max-width: 90%;
+      margin: 20px auto;
+    }
+    
+    /* Ajusta a galeria de imagens para telas menores */
+    .image-gallery {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+  
+    /* Ajusta a galeria de vídeos */
+    .video-gallery {
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+  }
+  
+  @media (max-width: 480px) {
+    /* Diminui o tamanho da fonte em dispositivos muito pequenos */
+    body {
+      font-size: 14px;
+    }
+    
+    /* Ajusta o botão de menu se necessário */
+    .menu-toggle {
+      padding: 8px 16px;
+      font-size: 20px;
+    }
+  }
+  
