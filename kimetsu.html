@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Vídeo</title>
+    <link rel="stylesheet" href="naruto/css/styles.css">
+    <style>
+        /* Estilo para o fundo com imagem */
+        body {
+            background-image: url('ASSETS/img/kimetsu.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Estilo para a imagem interna (se necessário) */
+        .imagem-interna {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Estilo para o container de vídeos */
+        .video-container {
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.6); /* Transparência no fundo */
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Estilo para os vídeos */
+        video {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    
+    <h2>Kmetsu No Yaiba 1 temporada</h2>
+    
+    <!-- Primeiro vídeo -->
+    <div class="video-container">
+        <div class="video-item">
+            <video id="meuVideo1" width="300" controls>
+                <source src="ASSETS/video/Assistir Naruto.mp4" type="video/mp4">
+                Seu navegador não suporta vídeos.
+            </video>
+            <p>Kimetsu no Yaiba Episódio 1</p>
+            <button class="comentario-toggle" onclick="toggleComentarioContainer('comentarios1')">Comentar</button>
+            <div id="comentarios1" class="comentario-container" style="display:none;">
+                <textarea placeholder="Escreva seu comentário..." id="comentario-texto1"></textarea>
+                <div class="comentario-actions">
+                    <button class="btn-enviar" onclick="adicionarComentario(1)">Enviar</button>
+                </div>
+                <div id="comentario-lista1" class="comentario-lista"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Segundo vídeo -->
+    <div class="video-container">
+        <div class="video-item">
+            <video id="meuVideo2" width="300" controls>
+                <source src="davi/ASSETS/video/Assistir Naruto.mp4" type="video/mp4">
+                Seu navegador não suporta vídeos.
+            </video>
+            <p>Kimetsu no Yaiba Episódio 2</p>
+            <button class="comentario-toggle" onclick="toggleComentarioContainer('comentarios2')">Comentar</button>
+            <div id="comentarios2" class="comentario-container" style="display:none;">
+                <textarea placeholder="Escreva seu comentário..." id="comentario-texto2"></textarea>
+                <div class="comentario-actions">
+                    <button class="btn-enviar" onclick="adicionarComentario(2)">Enviar</button>
+                </div>
+                <div id="comentario-lista2" class="comentario-lista"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Terceiro vídeo -->
+    <div class="video-container">
+        <div class="video-item">
+            <video id="meuVideo3" width="300" controls>
+                <source src="davi/ASSETS/video/Assistir Dragon Ball Z.mp4" type="video/mp4">
+                Seu navegador não suporta vídeos.
+            </video>
+            <p>Kimetsu no Yaiba Episódio 3</p>
+            <button class="comentario-toggle" onclick="toggleComentarioContainer('comentarios3')">Comentar</button>
+            <div id="comentarios3" class="comentario-container" style="display:none;">
+                <textarea placeholder="Escreva seu comentário..." id="comentario-texto3"></textarea>
+                <div class="comentario-actions">
+                    <button class="btn-enviar" onclick="adicionarComentario(3)">Enviar</button>
+                </div>
+                <div id="comentario-lista3" class="comentario-lista"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quarto vídeo -->
+    <div class="video-container">
+        <div class="video-item">
+            <video id="meuVideo4" width="300" controls>
+                <source src="davi/ASSETS/video/Assistir One Piece.mp4" type="video/mp4">
+                Seu navegador não suporta vídeos.
+            </video>
+            <p>Kimetsu no Yaiba Episódio 4</p>
+            <button class="comentario-toggle" onclick="toggleComentarioContainer('comentarios4')">Comentar</button>
+            <div id="comentarios4" class="comentario-container" style="display:none;">
+                <textarea placeholder="Escreva seu comentário..." id="comentario-texto4"></textarea>
+                <div class="comentario-actions">
+                    <button class="btn-enviar" onclick="adicionarComentario(4)">Enviar</button>
+                </div>
+                <div id="comentario-lista4" class="comentario-lista"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quinto vídeo -->
+    <div class="video-container">
+        <div class="video-item">
+            <video id="meuVideo5" width="300" controls>
+                <source src="davi/ASSETS/video/Assistir Bleach.mp4" type="video/mp4">
+                Seu navegador não suporta vídeos.
+            </video>
+            <p>Kimetsu no Yaiba Episódio 5</p>
+            <button class="comentario-toggle" onclick="toggleComentarioContainer('comentarios5')">Comentar</button>
+            <div id="comentarios5" class="comentario-container" style="display:none;">
+                <textarea placeholder="Escreva seu comentário..." id="comentario-texto5"></textarea>
+                <div class="comentario-actions">
+                    <button class="btn-enviar" onclick="adicionarComentario(5)">Enviar</button>
+                </div>
+                <div id="comentario-lista5" class="comentario-lista"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sexto vídeo -->
+    <div class="video-container">
+        <div class="video-item">
+            <video id="meuVideo6" width="300" controls>
+                <source src="davi/ASSETS/video/Assistir Attack on Titan.mp4" type="video/mp4">
+                Seu navegador não suporta vídeos.
+            </video>
+            <p>Kimetsu no Yaiba Episódio 6</p>
+            <button class="comentario-toggle" onclick="toggleComentarioContainer('comentarios6')">Comentar</button>
+            <div id="comentarios6" class="comentario-container" style="display:none;">
+                <textarea placeholder="Escreva seu comentário..." id="comentario-texto6"></textarea>
+                <div class="comentario-actions">
+                    <button class="btn-enviar" onclick="adicionarComentario(6)">Enviar</button>
+                </div>
+                <div id="comentario-lista6" class="comentario-lista"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sétimo vídeo -->
+    <div class="video-container">
+        <div class="video-item">
+            <video id="meuVideo7" width="300" controls>
+                <source src="davi/ASSETS/video/Assistir Fullmetal Alchemist.mp4" type="video/mp4">
+                Seu navegador não suporta vídeos.
+            </video>
+            <p>Kimetsu no Yaiba Episódio 7</p>
+            <button class="comentario-toggle" onclick="toggleComentarioContainer('comentarios7')">Comentar</button>
+            <div id="comentarios7" class="comentario-container" style="display:none;">
+                <textarea placeholder="Escreva seu comentário..." id="comentario-texto7"></textarea>
+                <div class="comentario-actions">
+                    <button class="btn-enviar" onclick="adicionarComentario(7)">Enviar</button>
+                </div>
+                <div id="comentario-lista7" class="comentario-lista"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Oitavo vídeo -->
+    <div class="video-container">
+        <div class="video-item">
+            <video id="meuVideo8" width="300" controls>
+                <source src="davi/ASSETS/video/Assistir Demon Slayer.mp4" type="video/mp4">
+                Seu navegador não suporta vídeos.
+            </video>
+            <p>Kimetsu no Yaiba Episódio 8</p>
+            <button class="comentario-toggle" onclick="toggleComentarioContainer('comentarios8')">Comentar</button>
+            <div id="comentarios8" class="comentario-container" style="display:none;">
+                <textarea placeholder="Escreva seu comentário..." id="comentario-texto8"></textarea>
+                <div class="comentario-actions">
+                    <button class="btn-enviar" onclick="adicionarComentario(8)">Enviar</button>
+                </div>
+                <div id="comentario-lista8" class="comentario-lista"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Nono vídeo -->
+    <div class="video-container">
+        <div class="video-item">
+            <video id="meuVideo9" width="300" controls>
+                <source src="davi/ASSETS/video/Assistir One Punch Man.mp4" type="video/mp4">
+                Seu navegador não suporta vídeos.
+            </video>
+            <p>Kimetsu no Yaiba Episódio 9</p>
+            <button class="comentario-toggle" onclick="toggleComentarioContainer('comentarios9')">Comentar</button>
+            <div id="comentarios9" class="comentario-container" style="display:none;">
+                <textarea placeholder="Escreva seu comentário..." id="comentario-texto9"></textarea>
+                <div class="comentario-actions">
+                    <button class="btn-enviar" onclick="adicionarComentario(9)">Enviar</button>
+                </div>
+                <div id="comentario-lista9" class="comentario-lista"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Décimo vídeo -->
+    <div class="video-container">
+        <div class="video-item">
+            <video id="meuVideo10" width="300" controls>
+                <source src="davi/ASSETS/video/Assistir Sword Art Online.mp4" type="video/mp4">
+                Seu navegador não suporta vídeos.
+            </video>
+            <p>Kimetsu no Yaiba Episódio 10</p>
+            <button class="comentario-toggle" onclick="toggleComentarioContainer('comentarios10')">Comentar</button>
+            <div id="comentarios10" class="comentario-container" style="display:none;">
+                <textarea placeholder="Escreva seu comentário..." id="comentario-texto10"></textarea>
+                <div class="comentario-actions">
+                    <button class="btn-enviar" onclick="adicionarComentario(10)">Enviar</button>
+                </div>
+                <div id="comentario-lista10" class="comentario-lista"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Décimo primeiro vídeo -->
+    <div class="video-container">
+        <div class="video-item">
+            <video id="meuVideo11" width="300" controls>
+                <source src="davi/ASSETS/video/Assistir Death Note.mp4" type="video/mp4">
+                Seu navegador não suporta vídeos.
+            </video>
+            <p>Kimetsu no Yaiba Episódio 11</p>
+            <button class="comentario-toggle" onclick="toggleComentarioContainer('comentarios11')">Comentar</button>
+            <div id="comentarios11" class="comentario-container" style="display:none;">
+                <textarea placeholder="Escreva seu comentário..." id="comentario-texto11"></textarea>
+                <div class="comentario-actions">
+                    <button class="btn-enviar" onclick="adicionarComentario(11)">Enviar</button>
+                </div>
+                <div id="comentario-lista11" class="comentario-lista"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Décimo segundo vídeo -->
+    <div class="video-container">
+        <div class="video-item">
+            <video id="meuVideo12" width="300" controls>
+                <source src="davi/ASSETS/video/Assistir My Hero Academia.mp4" type="video/mp4">
+                Seu navegador não suporta vídeos.
+            </video>
+            <p>Kimetsu no Yaiba Episódio 12</p>
+            <button class="comentario-toggle" onclick="toggleComentarioContainer('comentarios12')">Comentar</button>
+            <div id="comentarios12" class="comentario-container" style="display:none;">
+                <textarea placeholder="Escreva seu comentário..." id="comentario-texto12"></textarea>
+                <div class="comentario-actions">
+                    <button class="btn-enviar" onclick="adicionarComentario(12)">Enviar</button>
+                </div>
+                <div id="comentario-lista12" class="comentario-lista"></div>
+            </div>
+        </div>
+    </div>
+
+    <a href="inicio.html" class="btn-voltar">VOLTAR</a>
+    
+    <script src="naruto/jv/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+/* Reset básico de margens e padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #a50606d5;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Container principal dos vídeos */
+.video-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    margin-top: 20px;
+}
+
+/* Estilo para cada item de vídeo */
+.video-item {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito de hover para os itens de vídeo */
+.video-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Estilizando o título do episódio */
+.video-item p {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    color: #555;
+    font-weight: bold;
+}
+
+/* Ajuste do tamanho do vídeo */
+video {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+/* Controle dos botões (opcional) */
+.controls {
+    margin-top: 30px;
+}
+
+button {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+    
+
+/* Estilo para o botão voltar */
+.btn-voltar {
+    display: inline-block; /* Torna o link como um botão */
+    background-color: #151815; /* Cor de fundo verde */
+    color: white; /* Cor do texto branco */
+    padding: 10px 20px; /* Preenchimento */
+    text-align: center; /* Alinha o texto ao centro */
+    text-decoration: none; /* Remove o sublinhado do link */
+    border-radius: 5px; /* Bordas arredondadas */
+    font-size: 16px; /* Tamanho da fonte */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Animação suave para a cor de fundo e transform */
+}
+
+/* Efeito de hover no botão */
+.btn-voltar:hover {
+    background-color: #ce0610; /* Cor de fundo mais escura quando o mouse passa por cima */
+    transform: scale(1.1); /* Aumenta ligeiramente o tamanho do botão */
+}

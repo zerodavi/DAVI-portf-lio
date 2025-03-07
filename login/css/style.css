@@ -1,0 +1,216 @@
+/* Importa uma fonte estilosa */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, rgba(10, 26, 43, 0.7), rgba(0, 0, 0, 0.5)), url('https://wallpapercave.com/wp/wp9631960.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Estilo para o Container de Login */
+.login-container {
+    background: rgba(236, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    width: 350px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+    position: relative;
+}
+
+.login-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: #ff004f;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ff3366;
+}
+
+p a {
+    color: #ff004f;
+}
+
+/* Botão "Voltar" dentro da caixa de login */
+.back-button {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 0, 79, 0.8);
+    color: rgb(145, 12, 12);
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    transition: 0.3s;
+    box-shadow: 0 0 10px rgba(255, 0, 79, 0.8);
+}
+
+.back-button:hover {
+    background: rgba(255, 0, 79, 1);
+    box-shadow: 0 0 15px rgba(255, 0, 79, 1);
+    transform: scale(1.1);
+}
+
+/* Estilos para a página de Dashboard */
+.dashboard-container {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+    width: 350px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+}
+
+.dashboard-container h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.dashboard-container p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.logout-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #ff004f;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.logout-button:hover {
+    background: #ff3366;
+    transform: scale(1.05);
+}
+
+/* Estilos para o menu lateral */
+.side-menu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #c00a0a;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    z-index: 1000;
+}
+
+.side-menu a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+.side-menu a:hover {
+    background-color: #575757;
+}
+
+/* Estilo para o botão de abrir o menu */
+.open-menu-btn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    background-color: #ad0d0d;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.open-menu-btn:hover {
+    background-color: #0056b3;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .login-container {
+        width: 280px;
+    }
+    .dashboard-container {
+        width: 280px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        background-size: contain;
+    }
+    .login-container, .dashboard-container {
+        width: 90%;
+    }
+}
+
+.menu {
+    background-color: #333;
+    padding: 10px;
+    text-align: center;
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    display: inline;
+    margin-right: 20px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}

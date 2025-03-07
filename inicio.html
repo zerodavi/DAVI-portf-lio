@@ -1,0 +1,173 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Galeria de Imagens - AnimeWorld</title>
+  <link rel="stylesheet" href="barras de pesquisa - Copia/pagina do video/style.css"> <!-- Referência ao CSS -->
+  <style>
+    /* Estilos para o corpo da página */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #1a1a1a;
+      color: white;
+      margin: 0;
+      padding: 0;
+      position: relative;
+      /* Definindo uma imagem de fundo */
+      background-image: url('ASSETS/img/onepiece4K.jpg'); /* Caminho para a imagem */
+      background-size: cover;
+      background-position: center center;
+      background-attachment: fixed;
+      height: 100vh; /* Faz a imagem cobrir toda a tela */
+    }
+
+    /* Container para a barra de pesquisa */
+    .search-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+      z-index: 2; /* Garantir que a barra de pesquisa fique por cima da imagem de fundo */
+    }
+
+    .search-container input[type="text"] {
+      padding: 10px;
+      font-size: 16px;
+      width: 300px;
+      border: none;
+      border-radius: 5px;
+      margin-right: 10px;
+      background-color: #333;
+      color: white;
+    }
+
+    .search-container button {
+      padding: 10px 15px;
+      background-color: #f1c40f;
+      color: black;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .search-container button:hover {
+      background-color: #d4ac0d;
+    }
+
+    /* Estilos para o título principal */
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-top: 30px;
+      font-family: 'Verdana', sans-serif;
+      color: #f1c40f;
+      z-index: 2; /* Garantir que o título fique por cima da imagem */
+    }
+
+    /* Estilos para a galeria de imagens */
+    .image-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+      margin: 20px;
+      justify-items: center;
+      z-index: 2; /* Garantir que a galeria fique por cima da imagem */
+    }
+
+    .image-gallery figure {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .image-gallery figure:hover {
+      transform: scale(1.05);
+    }
+
+    .image-gallery img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .image-gallery img:hover {
+      opacity: 0.8;
+    }
+
+    .image-gallery figcaption {
+      text-align: center;
+      font-size: 1.2em;
+      margin-top: 10px;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: white;
+      padding: 5px;
+      border-radius: 0 0 10px 10px;
+    }
+
+    /* Responsividade */
+    @media screen and (max-width: 768px) {
+      .image-gallery {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      }
+    }
+
+    @media screen and (max-width: 480px) {
+      .search-container input[type="text"] {
+        width: 220px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="search-container">
+    <input type="text" name="query" placeholder="Digite sua pesquisa...">
+    <button type="submit">Pesquisar</button>
+  </div>
+
+  <h1>⛩️ ANIMES ⛩️</h1>
+
+  <div class="image-gallery">
+    <figure>
+      <a href="DragonBall.html" target="_blank">
+        <img src="ASSETS/img/DRAGONBALL.jpeg" alt="Dragon-Ball-Z">
+      </a>
+      <figcaption>Dragon-Ball-Z</figcaption>
+    </figure>
+    <figure>
+      <a href="kimetsu.html" target="_blank">
+        <img src="ASSETS/img/kimetsu2.jpg" alt="Kimetsu no Yaiba">
+      </a>
+      <figcaption>Kimetsu no Yaiba</figcaption>
+    </figure>
+    <figure>
+      <a href="naruto.html" target="_blank">
+        <img src="ASSETS/img/narutocapa.jpeg" alt="Naruto">
+      </a>
+      <figcaption>Naruto</figcaption>
+    </figure>
+    <figure>
+      <a href="onipiece.html" target="_blank">
+        <img src="ASSETS/img/one piece.webp" alt="One Piece">
+      </a>
+      <figcaption>One Piece</figcaption>
+    </figure>
+    <figure>
+      <a href="https://link4.com" target="_blank">
+        <img src="ASSETS/img/thumbbig-ops 2.webp" alt="LIXXO">
+      </a>
+      <figcaption>LIXXO</figcaption>
+    </figure>
+    <!-- Nova Imagem Adicionada -->
+    
+
+  <script src="barras de pesquisa - Copia/pagina do video/script.js"></script> <!-- Referência ao JS -->
+</body>
+
+</html>
