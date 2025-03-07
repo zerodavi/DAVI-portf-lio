@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - AnimeWorld</title>
+    <link rel="stylesheet" href="login/css/style.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>Bem-vindo ao AnimeWorld</h2>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Usuário" required>
+            <div class="password-container">
+                <input type="password" id="password" placeholder="Senha" required>
+                <button type="button" id="togglePassword">👁️</button>
+            </div>
+            <button type="submit">Entrar</button>
+        </form>
+        <p>Não tem uma conta? <a href="#" id="registerLink">Cadastre-se</a></p>
+    </div>
+
+    <a href="dashboard.html" class="back-button">⬅ Voltar</a>
+
+    <script src="login/script.js"></script>
+
+    <script>
+        // Adiciona o evento de submit no formulário
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault(); // Evita o envio padrão do formulário
+
+            // Captura o nome de usuário e a senha
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // Armazena o nome de usuário e a senha no localStorage (pode ser necessário adaptar para um sistema de autenticação real)
+            if (username && password) {
+                localStorage.setItem('username', username);  // Armazena o nome de usuário no localStorage
+                localStorage.setItem('password', password);  // Armazena a senha no localStorage (não recomendado em produção sem criptografia)
+                
+                // Redireciona para a página do dashboard ou onde você deseja
+                window.location.href = 'dashboard.html';  // Exemplo de redirecionamento
+            } else {
+                alert('Por favor, insira o nome de usuário e a senha.');
+            }
+        });
+
+        // Função para alternar o tipo de exibição da senha
+        document.getElementById('togglePassword').addEventListener('click', function() {
+            const passwordField = document.getElementById('password');
+            const type = passwordField.type === 'password' ? 'text' : 'password';
+            passwordField.type = type;
+        });
+    </script>
+</body>
+</html>
