@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Normas ABNT no Word</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', serif;
+            font-size: 12pt;
+            line-height: 1.5;
+            margin: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        header {
+            background-color: #004080;
+            color: white;
+            padding: 20px 10px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        nav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #575757;
+        }
+
+        section {
+            margin: 30px 20px;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            color: #004080;
+            font-size: 1.3em;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        h3 {
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-top: 30px;
+            margin-bottom: 10px;
+        }
+
+        p {
+            text-align: justify;
+            text-indent: 1.25cm;
+            margin: 10px 0;
+        }
+
+        blockquote {
+            background-color: #f0f0f0;
+            border-left: 4px solid #004080;
+            margin: 15px 0;
+            padding: 10px;
+            font-style: italic;
+        }
+
+        .citacao-bloco {
+            font-size: 10pt;
+            margin: 15px 40px;
+            padding: 10px;
+            background-color: #f3f3f3;
+            border-left: 3px solid #aaa;
+        }
+
+        code {
+            background-color: #eee;
+            padding: 2px 5px;
+            border-radius: 4px;
+            font-size: 0.95em;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #ddd;
+            margin-top: 40px;
+        }
+
+        /* Estilo para exemplo de capa */
+        .exemplo-capa {
+            border: 1px solid #ccc;
+            height: 500px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* centraliza verticalmente */
+            align-items: center;
+            /* centraliza horizontalmente */
+            text-align: center;
+            padding: 40px;
+            margin: 30px auto;
+            background-color: #fff;
+            max-width: 600px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .exemplo-capa p {
+            margin: 30px 0;
+            text-indent: 0;
+            font-size: 12pt;
+        }
+
+        .exemplo-capa .instituicao {
+            text-transform: uppercase;
+        }
+
+        .exemplo-capa .titulo {
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        /* Animação e aparência mais profissional */
+nav {
+    background-color: #160e6379;
+    padding: 10px 0;
+    text-align: center;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+}
+
+nav.show {
+    max-height: 500px; /* suficiente para exibir todos os itens */
+    opacity: 1;
+}
+
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}
+
+#menuToggleBtn {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+#menuToggleBtn:focus {
+    outline: none;
+}
+
+header {
+    position: relative;
+}
+
+    </style>
+</head>
+
+<body>
+
+    
+    <header>
+    <h1>Como Aplicar Normas ABNT no Word</h1>
+    
+    <p style="max-width: 800px; margin: 10px auto; font-size: 14pt; color: #f0f0f0;">
+        Este site é um guia completo para estudantes, com instruções claras de como aplicar corretamente as normas ABNT em trabalhos acadêmicos usando o Microsoft Word. Inclui exemplos visuais, dicas práticas e um vídeo tutorial para facilitar o processo de formatação.
+    </p>
+</header>
+
+    <button onclick="toggleMenu()" id="menuToggleBtn" aria-label="Alternar Menu">&#9776;</button>
+
+<nav id="mainMenu">
+        <a href="#margens">Margens</a>
+        <a href="#fonte">Fonte e Espaçamento</a>
+        <a href="#capa">Capa</a>
+        <a href="#sumario">Sumário</a>
+        <a href="#referencias">Referências</a>
+        <a href="#exemplo">Exemplo de Texto</a>
+        <a href="index.html">VOLTAR</a>
+    </nav>
+
+    <section id="margens">
+        <h2>1. Margens</h2>
+        <p>Abra o Word e vá em <code>Layout &gt; Margens &gt; Margens Personalizadas</code>. Configure assim:</p>
+        <ul>
+            <li>Superior: 3 cm</li>
+            <li>Inferior: 2 cm</li>
+            <li>Esquerda: 3 cm</li>
+            <li>Direita: 2 cm</li>
+        </ul>
+    </section>
+
+    <section id="fonte">
+        <h2>2. Fonte e Espaçamento</h2>
+        <p>Vá em <code>Início</code> e configure:</p>
+        <ul>
+            <li>Fonte: Times New Roman ou Arial</li>
+            <li>Tamanho: 12 pt</li>
+            <li>Espaçamento: 1,5 linhas</li>
+            <li>Alinhamento: Justificado</li>
+        </ul>
+    </section>
+
+    <section id="capa">
+        <h2>3. Capa</h2>
+        <p>A capa deve conter (centralizado):</p>
+        <ul>
+            <li>Nome da instituição</li>
+            <li>Nome do autor</li>
+            <li>Título do trabalho</li>
+            <li>Local (cidade)</li>
+            <li>Ano</li>
+        </ul>
+    </section>
+
+    <section id="sumario">
+        <h2>4. Sumário</h2>
+        <p>Use o recurso automático do Word:</p>
+        <ol>
+            <li>Aplique os estilos de título (<code>Título 1</code>, <code>Título 2</code>, etc.)</li>
+            <li>Vá em <code>Referências &gt; Sumário &gt; Inserir Sumário</code></li>
+        </ol>
+    </section>
+
+    <section id="referencias">
+        <h2>5. Referências</h2>
+        <p>Use o formato ABNT. Exemplo:</p>
+        <blockquote>
+            SOBRENOME, Nome. <strong>Título do livro</strong>. Edição. Local: Editora, ano.
+        </blockquote>
+    </section>
+
+    <section id="exemplo">
+        <h2>6. Exemplo de Texto Formatado</h2>
+
+        <h3>Exemplo de Capa Formatada (ABNT)</h3>
+        <div class="exemplo-capa">
+            <p class="instituicao">INSTITUTO DE ENSINO SUPERIOR EXEMPLO</p>
+            <p class="autor">Seu Nome</p>
+            <p class="titulo">COMO FORMATAR UM TRABALHO ACADÊMICO NAS NORMAS ABNT</p>
+            <p class="cidade">São Paulo</p>
+            <p class="ano">2025</p>
+        </div>
+
+        <h3>1 INTRODUÇÃO</h3>
+        <p>
+            A pesquisa científica tem como objetivo gerar conhecimento por meio de métodos sistemáticos e rigorosos.
+            Segundo Lakatos e Marconi (2003), a metodologia científica “é o conjunto de atividades sistemáticas,
+            racionais e objetivas que, com maior segurança e economia, permite alcançar o objetivo — conhecimento válido
+            e verdadeiro”.
+        </p>
+        <p>
+            A citação direta com mais de três linhas deve ser apresentada em bloco separado, com recuo de 4 cm da margem
+            esquerda, fonte menor e sem aspas:
+        </p>
+        <div class="citacao-bloco">
+            A metodologia científica é um conjunto de atividades sistemáticas, racionais e objetivas que, com maior
+            segurança e economia, permite alcançar o objetivo — conhecimento válido e verdadeiro. (LAKATOS; MARCONI,
+            2003, p. 23)
+        </div>
+        <p>
+            Neste trabalho, busca-se apresentar os principais elementos da norma ABNT aplicados à produção textual em
+            documentos acadêmicos, visando facilitar a vida dos estudantes e pesquisadores.
+        </p>
+        <h3>Referência utilizada no exemplo:</h3>
+        <blockquote>
+            LAKATOS, Eva Maria; MARCONI, Marina de Andrade. <strong>Fundamentos de metodologia científica</strong>. 5.
+            ed. São Paulo: Atlas, 2003.
+        </blockquote>
+    </section>
+
+    <!-- Área de vídeo -->
+    <section id="video">
+        <h2>Assista ao Vídeo</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/jOI16aH01ko" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen></iframe>
+            
+
+    </section>
+
+    <footer>
+        <p>&copy;2025Davi Ramos Guia ABNT. Todos os direitos reservados.</p>
+    </footer>
+    <script>
+    function toggleMenu() {
+        const nav = document.getElementById('mainMenu');
+        const btn = document.getElementById('menuToggleBtn');
+
+        nav.classList.toggle('show');
+        btn.innerHTML = nav.classList.contains('show') ? '&#10005;' : '&#9776;';
+    }
+</script>
+
+
+</body>
+
+</html>

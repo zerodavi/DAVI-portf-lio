@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tutoriais</title>
+
+  <!-- Fonte profissional do Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* Reset moderno */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+        Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      background: #f5f7fa;
+      color: #333d4b;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      min-height: 100vh;
+      padding-top: 64px; /* espaço para nav fixa */
+    }
+
+    /* NAV FIXA */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 64px;
+      background: #fff;
+      box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 0 24px;
+      z-index: 1000;
+      transition: background-color 0.3s ease;
+    }
+
+    /* Botão hambúrguer */
+    .hamburger {
+      background: none;
+      border: none;
+      cursor: pointer;
+      width: 36px;
+      height: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 0;
+      margin-right: 24px;
+      transition: transform 0.3s ease;
+    }
+
+    .hamburger:focus-visible {
+      outline: 2px solid #5c6bc0;
+      outline-offset: 2px;
+    }
+
+    .hamburger .bar {
+      display: block;
+      width: 100%;
+      height: 3.5px;
+      background-color: #4a5568;
+      border-radius: 2px;
+      transition: all 0.4s ease;
+      box-shadow: 0 1px 2px rgb(0 0 0 / 0.1);
+    }
+
+    /* Animação do botão hambúrguer ativo */
+    .hamburger.active .bar:nth-child(1) {
+      transform: translateY(12.5px) rotate(45deg);
+      background-color: #5c6bc0;
+      box-shadow: 0 0 8px #5c6bc0aa;
+    }
+
+    .hamburger.active .bar:nth-child(2) {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+
+    .hamburger.active .bar:nth-child(3) {
+      transform: translateY(-12.5px) rotate(-45deg);
+      background-color: #5c6bc0;
+      box-shadow: 0 0 8px #5c6bc0aa;
+    }
+
+    /* Menu lateral deslizante */
+    #mainMenu {
+      position: fixed;
+      top: 64px;
+      left: 0;
+      width: 280px;
+      height: calc(100vh - 64px);
+      background: #fff;
+      box-shadow: 2px 0 8px rgb(0 0 0 / 0.1);
+      padding-top: 32px;
+      transform: translateX(-100%);
+      transition: transform 0.35s ease;
+      overflow-y: auto;
+      z-index: 999;
+      border-right: 1px solid #e2e8f0;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+
+    #mainMenu.active {
+      transform: translateX(0);
+    }
+
+    #mainMenu ul {
+      list-style: none;
+      padding: 0 24px;
+      margin: 0;
+    }
+
+    #mainMenu ul li + li {
+      margin-top: 16px;
+    }
+
+    #mainMenu ul li a {
+      text-decoration: none;
+      color: #4a5568;
+      display: block;
+      padding: 8px 12px;
+      border-radius: 6px;
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    #mainMenu ul li a:hover,
+    #mainMenu ul li a:focus {
+      background-color: #5c6bc0;
+      color: #f7fafc;
+      outline: none;
+      box-shadow: 0 0 10px #5c6bc0aa;
+    }
+
+    /* ÁREA DE TUTORIAIS CENTRALIZADA */
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 24px 24px 48px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgb(0 0 0 / 0.07);
+    }
+
+    /* Cada tutorial */
+    .tutorial {
+      margin-bottom: 48px;
+    }
+
+    .tutorial:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Cabeçalho do tutorial */
+    .tutorial h2 {
+      font-weight: 700;
+      font-size: 2.2rem;
+      color: #2d3748;
+      margin-bottom: 12px;
+      border-bottom: 2px solid #cbd5e0;
+      padding-bottom: 8px;
+      letter-spacing: 0.02em;
+    }
+
+    /* Resumo em destaque */
+    .summary {
+      font-weight: 600;
+      font-style: italic;
+      color: #718096;
+      margin-bottom: 18px;
+      font-size: 1.1rem;
+    }
+
+    /* Texto do tutorial */
+    .tutorial p {
+      font-size: 1rem;
+      color: #4a5568;
+      margin-bottom: 16px;
+      line-height: 1.58;
+    }
+
+    /* Código pré-formatado */
+    pre {
+      background-color: #2d3748;
+      color: #e2e8f0;
+      padding: 20px 24px;
+      border-radius: 10px;
+      font-family: 'Fira Code', 'Source Code Pro', monospace;
+      font-size: 15px;
+      line-height: 1.5;
+      overflow-x: auto;
+      box-shadow: inset 0 0 12px rgb(0 0 0 / 0.35);
+      user-select: text;
+      margin-bottom: 24px;
+    }
+
+    /* Código inline */
+    code {
+      background-color: #e2e8f0;
+      padding: 2px 6px;
+      border-radius: 5px;
+      font-family: 'Fira Code', 'Source Code Pro', monospace;
+      font-size: 0.95rem;
+      color: #5c6bc0;
+    }
+
+    /* Links internos do tutorial */
+    a.anchor-link {
+      color: #5c6bc0;
+      text-decoration: none;
+      margin-left: 8px;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+
+    a.anchor-link:hover,
+    a.anchor-link:focus {
+      text-decoration: underline;
+      outline: none;
+    }
+
+    /* RESPONSIVO */
+    @media (max-width: 768px) {
+      body {
+        padding-top: 56px;
+      }
+
+      nav {
+        height: 56px;
+        padding: 0 16px;
+      }
+
+      .hamburger {
+        width: 32px;
+        height: 24px;
+        margin-right: 16px;
+      }
+
+      #mainMenu {
+        width: 240px;
+        top: 56px;
+        height: calc(100vh - 56px);
+        padding-top: 24px;
+        font-size: 1rem;
+      }
+
+      main {
+        padding: 20px 16px 40px;
+        margin: 0 10px;
+        border-radius: 8px;
+      }
+
+      .tutorial h2 {
+        font-size: 1.8rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <nav>
+    <button class="hamburger" id="hamburgerBtn" aria-label="Abrir menu de navegação" aria-expanded="false" aria-controls="mainMenu" title="Abrir menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
+    </button>
+
+    <div id="mainMenu" role="navigation" aria-label="Menu principal">
+      <ul>
+        <li><a href="#python">Python</a></li>
+        <li><a href="#vscode">VSCode</a></li>
+        <li><a href="#github">GitHub</a></li>
+        <li><a href="#html">HTML</a></li>
+        <li><a href="#css">CSS</a></li>
+        <li><a href="#js">JavaScript</a></li>
+        <li><a href="index.html">voltar</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <section style="margin-bottom: 32px;">
+  <h1 style="font-size: 2.5rem; color: #2d3748; text-align: center;">Bem-vindo</h1>
+  <p style="text-align: center; max-width: 600px; margin: 0 auto; font-size: 1.1rem; color: #4a5568;">
+    Este site oferece uma coleção de tutoriais simples, diretos e acessíveis sobre ferramentas essenciais do desenvolvimento moderno, como Python, HTML, CSS, JavaScript, VSCode e GitHub. Aprenda de forma prática, com exemplos claros e explicações objetivas.
+  </p>
+</section>
+
+    <section class="tutorial" id="python" tabindex="-1">
+      <h2>Mini Tutorial de Python</h2>
+      <p class="summary">Python é uma linguagem clara, simples e muito versátil, usada em várias áreas como web, automação e IA.</p>
+      <p>Python é uma das linguagens de programação mais populares e versáteis atualmente, destacando-se por sua sintaxe intuitiva e facilidade de aprendizado, o que a torna uma excelente escolha tanto para iniciantes quanto para profissionais experientes. Essa linguagem é amplamente adotada em diversas áreas da tecnologia, incluindo desenvolvimento web, análise de dados, automação de tarefas, desenvolvimento de software, inteligência artificial, machine learning, entre outras.</p>
+
+      <p>Uma das características mais marcantes do Python é sua legibilidade, que permite que o código seja escrito e compreendido de forma clara e direta, facilitando a manutenção e colaboração em projetos. Além disso, a grande comunidade em torno do Python proporciona uma enorme quantidade de bibliotecas e frameworks que aceleram o desenvolvimento e ampliam suas funcionalidades.</p>
+
+      <p>A seguir, apresentamos um exemplo simples para ilustrar conceitos básicos, como saída de dados, manipulação de variáveis, estruturas condicionais e laços de repetição:</p>
+
+      <pre>
+# Imprime uma mensagem na tela
+print("Olá, mundo!")
+
+# Variáveis e operações matemáticas
+a = 10
+b = 5
+soma = a + b
+print("A soma de", a, "e", b, "é:", soma)
+
+# Estruturas condicionais
+if a > b:
+    print("O valor de 'a' é maior que o de 'b'")
+else:
+    print("O valor de 'b' é maior ou igual ao de 'a'")
+
+# Laço de repetição para contar de 0 a 2
+for i in range(3):
+    print("Número atual:", i)
+      </pre>
+
+      <p>Esse exemplo demonstra elementos fundamentais da programação com Python: como exibir informações na tela, armazenar dados em variáveis, utilizar estruturas condicionais para tomada de decisão e iterar sobre um conjunto de valores com um laço. A partir desses conceitos básicos, é possível construir aplicações muito mais complexas e poderosas.</p>
+    </section>
+
+    <section class="tutorial" id="vscode" tabindex="-1">
+      <h2>Mini Tutorial de VSCode</h2>
+      <p class="summary">Visual Studio Code é um editor leve e poderoso, muito popular para desenvolvimento web e outras linguagens.</p>
+      <p>O Visual Studio Code (VSCode) é um editor de código fonte gratuito, desenvolvido pela Microsoft, que tem ganhado grande popularidade por sua leveza, extensibilidade e recursos avançados. Ele suporta uma ampla variedade de linguagens de programação, oferecendo ferramentas como depuração integrada, controle de versão Git, realce de sintaxe e integração com terminais.</p>
+
+      <p>Uma das maiores vantagens do VSCode é a sua vasta biblioteca de extensões, que permite aos desenvolvedores personalizar o ambiente de trabalho para atender a necessidades específicas, desde suporte a linguagens específicas até ferramentas de produtividade.</p>
+
+      <p>Para instalar uma extensão, basta clicar no ícone de extensões na barra lateral, buscar pelo nome e instalar com um clique. Além disso, o VSCode possui atalhos e comandos rápidos que aceleram o fluxo de trabalho.</p>
+
+      <p>Abaixo um exemplo de como configurar uma extensão para Python, muito usada para facilitar a escrita e execução de código nessa linguagem:</p>
+
+      <pre>
+{
+  "python.pythonPath": "/usr/bin/python3",
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": true,
+  "python.formatting.provider": "black",
+  "editor.formatOnSave": true
+}
+      </pre>
+
+      <p>Esse trecho de configuração (arquivo <code>settings.json</code>) habilita o linting com o Pylint, formatação automática com Black e aponta para o interpretador Python correto, melhorando muito a experiência ao programar.</p>
+    </section>
+
+    <section class="tutorial" id="github" tabindex="-1">
+      <h2>Mini Tutorial de GitHub</h2>
+      <p class="summary">GitHub é uma plataforma para hospedagem de código, controle de versão e colaboração entre desenvolvedores.</p>
+      <p>GitHub é um serviço baseado na web que utiliza o sistema de controle de versão Git para armazenar, gerenciar e compartilhar código-fonte. Ele facilita a colaboração entre equipes, permitindo que múltiplos desenvolvedores trabalhem simultaneamente no mesmo projeto sem conflitos.</p>
+
+      <p>Algumas funcionalidades importantes incluem o gerenciamento de branches, pull requests, issues para acompanhamento de tarefas e integração contínua para automação de testes e deploy.</p>
+
+      <p>Exemplo simples para criar um repositório local e enviá-lo para o GitHub:</p>
+
+      <pre>
+git init
+git add .
+git commit -m "Primeiro commit"
+git remote add origin https://github.com/usuario/repositorio.git
+git push -u origin master
+      </pre>
+
+      <p>Esses comandos iniciam um repositório Git local, adicionam os arquivos para serem rastreados, criam o primeiro commit e enviam tudo para o repositório remoto no GitHub.</p>
+    </section>
+
+    <section class="tutorial" id="html" tabindex="-1">
+      <h2>Mini Tutorial de HTML</h2>
+      <p class="summary">HTML é a linguagem padrão para criar páginas web, definindo a estrutura do conteúdo.</p>
+      <p>O HTML (HyperText Markup Language) é a base da web, usado para estruturar o conteúdo das páginas. Ele organiza textos, imagens, links, vídeos e outros elementos que compõem um site.</p>
+
+      <p>Exemplo básico de estrutura HTML:</p>
+
+      <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-BR"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Minha Página&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Olá, mundo!&lt;/h1&gt;
+    &lt;p&gt;Este é um parágrafo.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+      </pre>
+
+      <p>Este código define uma página HTML com título e conteúdo visível na tela.</p>
+    </section>
+
+    <section class="tutorial" id="css" tabindex="-1">
+      <h2>Mini Tutorial de CSS</h2>
+      <p class="summary">CSS é a linguagem que estiliza as páginas web, controlando layout, cores, fontes e responsividade.</p>
+      <p>CSS (Cascading Style Sheets) é usado para controlar a aparência visual dos elementos HTML, separando o conteúdo da apresentação. Isso facilita a manutenção e permite designs flexíveis e atraentes.</p>
+
+      <p>Exemplo simples de CSS:</p>
+
+      <pre>
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  color: #333333;
+}
+
+h1 {
+  color: #005f73;
+  text-align: center;
+}
+      </pre>
+
+      <p>Esse exemplo define a fonte, cor de fundo, cor do texto e o alinhamento do título.</p>
+    </section>
+
+    <section class="tutorial" id="js" tabindex="-1">
+      <h2>Mini Tutorial de JavaScript</h2>
+      <p class="summary">JavaScript é a linguagem que adiciona interatividade às páginas web.</p>
+      <p>JavaScript é uma linguagem de programação que permite criar conteúdos dinâmicos e interativos em websites, como animações, validação de formulários, requisições assíncronas, entre outros.</p>
+
+      <p>Exemplo básico:</p>
+
+      <pre>
+function saudacao() {
+  alert("Olá! Bem-vindo ao site.");
+}
+
+document.getElementById("btnSaudacao").addEventListener("click", saudacao);
+      </pre>
+
+      <p>Este código mostra um alerta quando um botão com o id <code>btnSaudacao</code> é clicado.</p>
+    </section>
+  </main>
+
+  <script>
+    const hamburger = document.getElementById('hamburgerBtn');
+    const navMenu = document.getElementById('mainMenu');
+
+    hamburger.addEventListener('click', () => {
+      const expanded = hamburger.getAttribute('aria-expanded') === 'true' || false;
+      hamburger.setAttribute('aria-expanded', !expanded);
+      hamburger.classList.toggle('active');
+      navMenu.classList.toggle('active');
+    });
+
+    // Fechar menu ao clicar em algum link
+    navMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', false);
+        navMenu.classList.remove('active');
+      });
+    });
+  </script>
+</body>
+
+</html>

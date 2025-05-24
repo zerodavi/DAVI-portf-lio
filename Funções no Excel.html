@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Funções no Excel</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+
+        section {
+            margin-top: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        .example {
+            background-color: #e0f7fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+
+        code {
+            background-color: #f0f0f0;
+            padding: 5px;
+            border-radius: 3px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 14px;
+            color: #777;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        nav {
+            background-color: #388e3c;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .menu {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .menu li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .menu a:hover {
+            text-decoration: underline;
+        }
+
+        .descricao-site {
+            background-color: #ffffff;
+            border-left: 5px solid #4CAF50;
+            padding: 20px;
+            margin: 20px 0;
+            font-size: 16px;
+            line-height: 1.6;
+            color: #333;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Animação e aparência mais profissional */
+nav {
+    background-color: #388e3c;
+    padding: 10px 0;
+    text-align: center;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+}
+
+nav.show {
+    max-height: 500px; /* suficiente para exibir todos os itens */
+    opacity: 1;
+}
+
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    display: inline-block;
+    margin: 0 15px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.menu a:hover {
+    text-decoration: underline;
+}
+
+#menuToggleBtn {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+#menuToggleBtn:focus {
+    outline: none;
+}
+
+header {
+    position: relative;
+}
+
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Funções no Excel</h1>
+        <button onclick="toggleMenu()" id="menuToggleBtn" aria-label="Alternar Menu">&#9776;</button>
+
+<nav id="mainMenu">
+    <ul class="menu">
+        <li><a href="#soma">SOMA</a></li>
+        <li><a href="#cont-valores">CON.VALORES</a></li>
+        <li><a href="#media">MÉDIA</a></li>
+        <li><a href="#minmax">MÍNIMO / MÁXIMO</a></li>
+        <li><a href="#se">SE</a></li>
+        <li><a href="#cont-valores-2">CONT.VALORES</a></li>
+        <li><a href="#contse">CONT.SE</a></li>
+        <li><a href="#somase">SOMASE</a></li>
+        <li><a href="#mediase">MÉDIASE</a></li>
+        <li><a href="#hoje">HOJE</a></li>
+        <li><a href="index.html">VOLTAR</a></li>
+    </ul>
+</nav>
+
+
+    </header>
+    <div class="descricao-site">
+        <p>Aprenda as principais funções do Excel com exemplos simples e interativos. Simule cálculos diretamente na
+            página e entenda como aplicar fórmulas como <strong>SOMA, MÉDIA, SE, CONT.SE,</strong>, entre outras.</p>
+    </div>
+
+
+
+
+
+    <section id="soma">
+        <h2>1. Função SOMA</h2>
+        <p>A função <strong>SOMA</strong> no Excel é utilizada para somar um conjunto de números. Ela é muito útil
+            quando queremos saber o total de uma série de dados numéricos, como vendas, despesas, etc.</p>
+
+        <h3>Exemplo Prático de SOMA</h3>
+        <p>Imagine que você tem os valores de vendas mensais de uma loja e quer saber o total das vendas de janeiro a
+            maio. Com a função <strong>SOMA</strong>, você consegue fazer isso facilmente.</p>
+
+        <h3>Tabela de Vendas</h3>
+        <p>Você pode inserir os valores de vendas abaixo para calcular a soma total das vendas:</p>
+
+        <table id="tabelaVendas">
+            <thead>
+                <tr>
+                    <th>Mês</th>
+                    <th>Vendas (R$)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Janeiro</td>
+                    <td><input type="number" id="jan" oninput="calcularSoma()"></td>
+                </tr>
+                <tr>
+                    <td>Fevereiro</td>
+                    <td><input type="number" id="fev" oninput="calcularSoma()"></td>
+                </tr>
+                <tr>
+                    <td>Março</td>
+                    <td><input type="number" id="mar" oninput="calcularSoma()"></td>
+                </tr>
+                <tr>
+                    <td>Abril</td>
+                    <td><input type="number" id="abr" oninput="calcularSoma()"></td>
+                </tr>
+                <tr>
+                    <td>Maio</td>
+                    <td><input type="number" id="mai" oninput="calcularSoma()"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>Soma Total:</strong> <span id="resultadoSoma">0</span> R$</p>
+        <p>À medida que você insere os valores, a soma total será calculada e exibida em tempo real abaixo da tabela.
+        </p>
+
+        <h3>Como a função SOMA funciona:</h3>
+        <p>A função SOMA somará todos os valores inseridos nas células de vendas, considerando os dados de Janeiro a
+            Maio. Assim, se você inserir os valores 10.000 em Janeiro, 12.000 em Fevereiro, 15.000 em Março, 20.000 em
+            Abril e 25.000 em Maio, a soma total será 82.000 R$.</p>
+    </section>
+
+    <section id="cont-valores">
+        <h2>2. Função CON.VALORES</h2>
+        <p>A função <strong>CON.VALORES</strong> no Excel é usada para contar o número de células não vazias em um
+            intervalo. Ou seja, ela permite contar quantos valores foram inseridos em um conjunto de células.</p>
+
+        <h3>Exemplo Prático de CON.VALORES</h3>
+        <p>Agora, imagine que você tem a tabela de vendas, mas alguns meses não têm dados inseridos (estão vazios).
+            Usando a função <strong>CON.VALORES</strong>, você pode contar quantos meses têm valores registrados.</p>
+
+        <h3>Tabela de Vendas com Células Vazias</h3>
+        <p>Insira os valores de vendas abaixo e a função <strong>CON.VALORES</strong> irá contar quantos meses têm
+            valores inseridos.</p>
+
+        <table id="tabelaContagem">
+            <thead>
+                <tr>
+                    <th>Mês</th>
+                    <th>Vendas (R$)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Janeiro</td>
+                    <td><input type="number" id="jan2" oninput="contarValores()"></td>
+                </tr>
+                <tr>
+                    <td>Fevereiro</td>
+                    <td><input type="number" id="fev2" oninput="contarValores()"></td>
+                </tr>
+                <tr>
+                    <td>Março</td>
+                    <td><input type="number" id="mar2" oninput="contarValores()"></td>
+                </tr>
+                <tr>
+                    <td>Abril</td>
+                    <td><input type="number" id="abr2" oninput="contarValores()"></td>
+                </tr>
+                <tr>
+                    <td>Maio</td>
+                    <td><input type="number" id="mai2" oninput="contarValores()"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>Contagem de Vendas Registradas:</strong> <span id="resultadoContagem">0</span></p>
+        <p>Assim que você inserir os valores nas células de vendas, o número de células preenchidas será contado
+            automaticamente e exibido abaixo da tabela.</p>
+
+        <h3>Como a função CON.VALORES funciona:</h3>
+        <p>A função CON.VALORES irá contar as células que contêm dados, ignorando as células vazias. Por exemplo, se
+            você inserir um valor de 10.000 R$ em Janeiro, 12.000 R$ em Fevereiro, e deixar Março em branco, a função
+            contará 2 valores (Janeiro e Fevereiro), retornando o número 2.</p>
+    </section>
+
+
+    <section id="media">
+        <h2>3. Função MÉDIA</h2>
+        <p>A função <strong>MÉDIA</strong> calcula a média dos valores numéricos inseridos.</p>
+
+        <table id="tabelaMedia">
+            <thead>
+                <tr>
+                    <th>Mês</th>
+                    <th>Notas (0 a 10)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Prova 1</td>
+                    <td><input type="number" id="n1" min="0" max="10" oninput="calcularMedia()"></td>
+                </tr>
+                <tr>
+                    <td>Prova 2</td>
+                    <td><input type="number" id="n2" min="0" max="10" oninput="calcularMedia()"></td>
+                </tr>
+                <tr>
+                    <td>Prova 3</td>
+                    <td><input type="number" id="n3" min="0" max="10" oninput="calcularMedia()"></td>
+                </tr>
+                <tr>
+                    <td>Prova 4</td>
+                    <td><input type="number" id="n4" min="0" max="10" oninput="calcularMedia()"></td>
+                </tr>
+            </tbody>
+        </table>
+        <p><strong>Média:</strong> <span id="resultadoMedia">0</span></p>
+    </section>
+
+    <section id="minmax">
+        <h2>4. Função MÍNIMO e MÁXIMO</h2>
+        <p>As funções <strong>MÍNIMO</strong> e <strong>MÁXIMO</strong> retornam, respectivamente, o menor e o maior
+            valor de um conjunto de dados.</p>
+
+        <table id="tabelaMinMax">
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Valor (R$)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Produto A</td>
+                    <td><input type="number" id="v1" oninput="calcularMinMax()"></td>
+                </tr>
+                <tr>
+                    <td>Produto B</td>
+                    <td><input type="number" id="v2" oninput="calcularMinMax()"></td>
+                </tr>
+                <tr>
+                    <td>Produto C</td>
+                    <td><input type="number" id="v3" oninput="calcularMinMax()"></td>
+                </tr>
+                <tr>
+                    <td>Produto D</td>
+                    <td><input type="number" id="v4" oninput="calcularMinMax()"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>Menor Valor:</strong> <span id="valorMinimo">0</span> R$</p>
+        <p><strong>Maior Valor:</strong> <span id="valorMaximo">0</span> R$</p>
+    </section>
+
+    <section id="se">
+        <h2>5. Função SE</h2>
+        <p>A função <STrong>SE</STrong> no Excel (ou em outras planilhas eletrônicas) é usada para testar uma condição e
+            retornar um
+            valor se essa condição for verdadeira ou outro valor se for falsa.</p>
+
+        <p>Digite uma meta de vendas e um valor alcançado para ver se a meta foi atingida:</p>
+
+        <table>
+            <tr>
+                <td>Meta de Vendas (R$)</td>
+                <td><input type="number" id="meta" oninput="avaliarMeta()"></td>
+            </tr>
+            <tr>
+                <td>Vendas Realizadas (R$)</td>
+                <td><input type="number" id="vendas" oninput="avaliarMeta()"></td>
+            </tr>
+        </table>
+
+        <p><strong>Resultado:</strong> <span id="resultadoSE">Informe os valores</span></p>
+    </section>
+
+
+
+    <section id="cont-valores-2">
+        <h2>6. Função CONT.VALORES </h2>
+        <p>A função <STrong>CONT.VALORES</STrong> no Excel (em português) é usada para contar o número de células não
+            vazias em um intervalo.</p>
+
+        <table>
+            <tr>
+                <td>Nota 1</td>
+                <td><input type="number" id="cv1" oninput="contarNotas()"></td>
+            </tr>
+            <tr>
+                <td>Nota 2</td>
+                <td><input type="number" id="cv2" oninput="contarNotas()"></td>
+            </tr>
+            <tr>
+                <td>Nota 3</td>
+                <td><input type="number" id="cv3" oninput="contarNotas()"></td>
+            </tr>
+            <tr>
+                <td>Nota 4</td>
+                <td><input type="number" id="cv4" oninput="contarNotas()"></td>
+            </tr>
+        </table>
+
+        <p><strong>Notas preenchidas:</strong> <span id="totalNotasPreenchidas">0</span></p>
+    </section>
+
+    <section id="contse">
+        <h2>7. Função CONT.SE</h2>
+        <p>Conta quantas vezes um critério é atendido.</p>
+        <p>Digite idades e veja quantas são maiores que 18.</p>
+
+        <table>
+            <tr>
+                <td>Idade 1</td>
+                <td><input type="number" id="idade1" oninput="contarMaiores()"></td>
+            </tr>
+            <tr>
+                <td>Idade 2</td>
+                <td><input type="number" id="idade2" oninput="contarMaiores()"></td>
+            </tr>
+            <tr>
+                <td>Idade 3</td>
+                <td><input type="number" id="idade3" oninput="contarMaiores()"></td>
+            </tr>
+            <tr>
+                <td>Idade 4</td>
+                <td><input type="number" id="idade4" oninput="contarMaiores()"></td>
+            </tr>
+        </table>
+
+        <p><strong>Maiores de 18:</strong> <span id="maiores18">0</span></p>
+    </section>
+
+    <section id="somase">
+        <h2>8. Função SOMASE</h2>
+        <p>Soma apenas os valores que atendem a um critério.</p>
+        <p>Digite valores de vendas e some apenas os que forem maiores que R$ 1000.</p>
+
+        <table>
+            <tr>
+                <td>Venda 1</td>
+                <td><input type="number" id="s1" oninput="somaAcimaMil()"></td>
+            </tr>
+            <tr>
+                <td>Venda 2</td>
+                <td><input type="number" id="s2" oninput="somaAcimaMil()"></td>
+            </tr>
+            <tr>
+                <td>Venda 3</td>
+                <td><input type="number" id="s3" oninput="somaAcimaMil()"></td>
+            </tr>
+        </table>
+
+        <p><strong>Total acima de R$ 1000:</strong> <span id="totalAcimaMil">0</span> R$</p>
+    </section>
+
+    <section id="mediase">
+        <h2>9. Função MÉDIASE</h2>
+        <p>Calcula a média dos valores que atendem a um critério.</p>
+        <p>Digite notas e veja a média das notas acima de 6.</p>
+
+        <table>
+            <tr>
+                <td>Nota 1</td>
+                <td><input type="number" id="ms1" oninput="mediaAprovados()"></td>
+            </tr>
+            <tr>
+                <td>Nota 2</td>
+                <td><input type="number" id="ms2" oninput="mediaAprovados()"></td>
+            </tr>
+            <tr>
+                <td>Nota 3</td>
+                <td><input type="number" id="ms3" oninput="mediaAprovados()"></td>
+            </tr>
+        </table>
+
+        <p><strong>Média das notas ≥ 6:</strong> <span id="mediaAprovados">0</span></p>
+    </section>
+
+    <section id="hoje">
+        <h2>10. Função HOJE</h2>
+        <p>Retorna a data atual automaticamente.</p>
+
+        <p><strong>Data de hoje:</strong> <span id="dataAtual"></span></p>
+    </section>
+
+
+
+
+
+
+    <footer>
+        <p>&copy; 2025 Tutorial Excel - Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+
+        // Função para calcular a soma
+        function calcularSoma() {
+            var jan = parseFloat(document.getElementById('jan').value) || 0;
+            var fev = parseFloat(document.getElementById('fev').value) || 0;
+            var mar = parseFloat(document.getElementById('mar').value) || 0;
+            var abr = parseFloat(document.getElementById('abr').value) || 0;
+            var mai = parseFloat(document.getElementById('mai').value) || 0;
+            var soma = jan + fev + mar + abr + mai;
+            document.getElementById('resultadoSoma').textContent = soma.toFixed(2);
+        }
+
+        // Função para contar as células com valores
+        function contarValores() {
+            var jan = document.getElementById('jan2').value;
+            var fev = document.getElementById('fev2').value;
+            var mar = document.getElementById('mar2').value;
+            var abr = document.getElementById('abr2').value;
+            var mai = document.getElementById('mai2').value;
+
+            var count = 0;
+            if (jan !== '') count++;
+            if (fev !== '') count++;
+            if (mar !== '') count++;
+            if (abr !== '') count++;
+            if (mai !== '') count++;
+
+            document.getElementById('resultadoContagem').textContent = count;
+        }
+        // Função para calcular a média
+        function calcularMedia() {
+            let valores = [
+                parseFloat(document.getElementById('n1').value),
+                parseFloat(document.getElementById('n2').value),
+                parseFloat(document.getElementById('n3').value),
+                parseFloat(document.getElementById('n4').value)
+            ].filter(v => !isNaN(v));
+
+            let media = valores.length ? (valores.reduce((a, b) => a + b, 0) / valores.length) : 0;
+            document.getElementById('resultadoMedia').textContent = media.toFixed(2);
+        }
+
+        // Função para calcular mínimo e máximo
+        function calcularMinMax() {
+            let valores = [
+                parseFloat(document.getElementById('v1').value),
+                parseFloat(document.getElementById('v2').value),
+                parseFloat(document.getElementById('v3').value),
+                parseFloat(document.getElementById('v4').value)
+            ].filter(v => !isNaN(v));
+
+            let min = valores.length ? Math.min(...valores) : 0;
+            let max = valores.length ? Math.max(...valores) : 0;
+
+            document.getElementById('valorMinimo').textContent = min.toFixed(2);
+            document.getElementById('valorMaximo').textContent = max.toFixed(2);
+        }
+
+        // Função para aplicar lógica SE
+        function avaliarMeta() {
+            let meta = parseFloat(document.getElementById('meta').value);
+            let vendas = parseFloat(document.getElementById('vendas').value);
+
+            if (isNaN(meta) || isNaN(vendas)) {
+                document.getElementById('resultadoSE').textContent = 'Informe os valores';
+            } else {
+                let resultado = vendas >= meta ? 'Meta Atingida 🎯' : 'Meta Não Atingida ❌';
+                document.getElementById('resultadoSE').textContent = resultado;
+            }
+        }
+
+
+
+
+
+        // CONT.VALORES para notas
+        function contarNotas() {
+            let notas = ['cv1', 'cv2', 'cv3', 'cv4'];
+            let total = notas.reduce((acc, id) => acc + (document.getElementById(id).value !== '' ? 1 : 0), 0);
+            document.getElementById('totalNotasPreenchidas').textContent = total;
+        }
+
+        // CONT.SE: contar maiores de 18
+        function contarMaiores() {
+            let ids = ['idade1', 'idade2', 'idade3', 'idade4'];
+            let count = ids.reduce((acc, id) => {
+                let val = parseFloat(document.getElementById(id).value);
+                return acc + (!isNaN(val) && val > 18 ? 1 : 0);
+            }, 0);
+            document.getElementById('maiores18').textContent = count;
+        }
+
+        // SOMASE: soma se maior que 1000
+        function somaAcimaMil() {
+            let ids = ['s1', 's2', 's3'];
+            let soma = ids.reduce((acc, id) => {
+                let val = parseFloat(document.getElementById(id).value);
+                return acc + (!isNaN(val) && val > 1000 ? val : 0);
+            }, 0);
+            document.getElementById('totalAcimaMil').textContent = soma.toFixed(2);
+        }
+
+        // MÉDIASE: média de notas >= 6
+        function mediaAprovados() {
+            let ids = ['ms1', 'ms2', 'ms3'];
+            let aprovadas = ids.map(id => parseFloat(document.getElementById(id).value))
+                .filter(n => !isNaN(n) && n >= 6);
+            let media = aprovadas.length ? (aprovadas.reduce((a, b) => a + b, 0) / aprovadas.length) : 0;
+            document.getElementById('mediaAprovados').textContent = media.toFixed(2);
+        }
+
+        // HOJE
+        document.getElementById('dataAtual').textContent = new Date().toLocaleDateString('pt-BR');
+        function toggleMenu() {
+    const nav = document.getElementById('mainMenu');
+    const btn = document.getElementById('menuToggleBtn');
+
+    nav.classList.toggle('show');
+    btn.innerHTML = nav.classList.contains('show') ? '&#10005;' : '&#9776;';
+}
+
+
+    </script>
+
+
+</body>
+
+</html>
